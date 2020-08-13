@@ -7,6 +7,7 @@ being played from and so on. This information can help the company know their en
 We have used a star schema optimized for queires on song play analysis. 
 Data is extracted from json files containing song and app_events data.
 Songplay events are filtered, and loaded into songplays table with relevant song and artist information. 
+The event json files are read in chronological order so that the user's latest level (paid/free) is always updated in db. 
 
 ## How to run 
 1. Run the create_tables.py script

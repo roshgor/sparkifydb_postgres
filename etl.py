@@ -22,7 +22,7 @@ def process_song_file(cur, filepath):
 
 def process_log_file(cur, filepath):
     ''' Read logfile, fill time, users, and songplay table  '''
-
+    print(filepath)
     # open log file
     df = pd.read_json(filepath, lines=True)
 
@@ -72,7 +72,7 @@ def process_data(cur, conn, filepath, func):
     all_files = []
     for root, dirs, files in os.walk(filepath):
         files = glob.glob(os.path.join(root, '*.json'))
-        for f in files:
+        for f in sorted(files): # Event files will be in chronological order. user's latest level always updatd. 
             all_files.append(os.path.abspath(f))
 
     # get total number of files found
